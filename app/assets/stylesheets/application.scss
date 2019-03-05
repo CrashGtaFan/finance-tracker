@@ -2,3 +2,9 @@
  *= require_tree .
  *= require_self
  */
+.result_block {
+  display: inline-block;
+}
+.no-padding {
+  padding: 0 !important;
+}

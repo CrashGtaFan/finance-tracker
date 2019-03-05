@@ -1,0 +1,24 @@
+<h1>My portfolio</h1>
+<h3>Search for stocks</h3>
+<div class='row'>
+  <div id='stock-lookup'>
+    <%= form_tag search_stocks_path, remote: true, method: :get, id: 'stock-lookup-form' do %>
+      <div class='form-group row no-padding text-center col-md-12'>
+        <div class='col-md-10 col-xs-6'>
+          <%= text_field_tag :stock, params[:stock], placeholder: 'Enter your stock value',
+                                                     authofocus: true,
+                                                     required: true,
+                                                     class: 'form-control search-box input-lg' %>
+        </div>
+        <div class='col-md-2 col-xs-6'>
+          <%= button_tag(type: :submit, class: 'btn btn-lg btn-success') do %>
+            <span class="glyphicon glyphicon-search"></span> Look up a stock
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id='results'>
+  <%= render 'users/result' %>
+</div>
