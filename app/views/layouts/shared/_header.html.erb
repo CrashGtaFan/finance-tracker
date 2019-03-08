@@ -5,16 +5,23 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">FinanceTracker</a>
+    <%= link_to 'FinanceTracker', root_path, class: 'navbar-brand' %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "My portfolio", my_portfolio_path  %></li>
-      </ul>
-      <ul class="nav navbar-nav  navbar-right">
-        <% if current_user %>
-          <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-        <% end %>
-      </ul>
+      <% if current_user %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "My portfolio", my_portfolio_path %></li>
+          <li><%= link_to "My Profile", edit_registration_path(current_user) %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right col-md-4">
+          <li class="col-md-8 user-name text-right">
+            <i class="glyphicon glyphicon-user"></i>
+            <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
+          </li>
+          <li class="col-md-4 logout">
+            <%= link_to("logout", destroy_user_session_path, class: "btn btn-xs btn-danger", method: :delete) %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>

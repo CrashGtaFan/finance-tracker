@@ -5,6 +5,14 @@ class User < ApplicationRecord
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
   
+  def full_name
+    if first_name || last_name
+      "#{first_name} #{last_name}"
+    else
+      'Anonimus'
+    end
+  end
+  
   def stock_arleady_added?(ticker_symbol)
     stock = Stock.find_by_ticker(ticker_symbol)
     return false unless stock
