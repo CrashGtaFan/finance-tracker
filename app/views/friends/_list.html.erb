@@ -8,7 +8,7 @@
     <tr>
       <th>Full name</th>
       <th>Email</th>
-      <th colspan='2'>Actions</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,12 +17,20 @@
         <td><%= friend.full_name %></td>
         <td><%= friend.email %></td>
         <td>
-          <%= link_to 'View profile', user_path(friend), class: 'btn btn-xs btn-info' %>
-        </td>
-        <td>
-          <%= link_to 'Delete from friends', friendship_path(friend), method: :delete,
-            data: { confirm: 'Are you gonna destroy that friend' }, class: 'btn btn-xs btn-danger'
-          %>
+          <div class="dropdown">
+            <button class="btn btn-xs btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Actions
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to 'View profile', user_path(friend) %>
+              </li>
+              <li>
+                <%= link_to 'Delete from friends', friendship_path(friend), method: :delete,
+                  data: { confirm: 'Are you gonna destroy that friend' }
+                %>
+              </li>
+            </ul>
+          </div>
         </td>
       </tr>
     <% end %>

@@ -5,7 +5,9 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to 'FinanceTracker', root_path, class: 'navbar-brand' %>
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      Finance tracker <i class="glyphicon glyphicon-euro"></i>
+    <% end %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <% if current_user %>
         <ul class="nav navbar-nav">
@@ -19,7 +21,7 @@
             <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
           </li>
           <li class="col-md-4 logout">
-            <%= link_to("logout", destroy_user_session_path, class: "btn btn-xs btn-danger", method: :delete) %>
+            <%= link_to("Log out", destroy_user_session_path, method: :delete) %>
           </li>
         </ul>
       <% end %>
