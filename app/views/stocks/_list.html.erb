@@ -18,7 +18,7 @@
         <% if @user == current_user %>
           <td>
             <%= link_to 'Delete that stock', user_stock_path(user_stock), method: :delete,
-                data: { confirm: 'Are yoy gonna destroy that stock' },
+                data: { confirm: 'Are you gonna destroy that stock' },
                 class: 'btn btn-xs btn-danger'
             %>
           </td>

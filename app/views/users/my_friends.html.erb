@@ -1,0 +1,12 @@
+<%= render 'friends/lookup' %>
+<div class="row">
+  <% if @friendships.count.positive? %>
+    <div class="col-md-12 col-xs-12">
+      <%= render 'friends/list' %>
+    </div>
+  <% else %>
+    <div class='row col-lg-12'>
+      <p class="lead">You have no friends yet! Please add some!</p>
+    </div>
+  <% end %>
+</div>
